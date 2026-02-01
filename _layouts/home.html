@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>{{ site.person.name }} — Papers & Preprints</title>
+  <meta name="description" content="{{ site.description }}" />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="canonical" href="{{ site.url }}/" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/style.css" />
+
+  <meta property="og:title" content="{{ site.person.name }} — Papers & Preprints" />
+  <meta property="og:description" content="{{ site.description }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ site.url }}/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.person.name }}",
+    "url": "{{ site.url }}/",
+    "description": "{{ site.person.bio }}",
+    "sameAs": [
+      "https://github.com/{{ site.person.github_username }}",
+      "https://orcid.org/{{ site.person.orcid }}"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  {% assign pubs = site.data.publications | sort: "date" | reverse %}
+  {% assign latest = pubs | first %}
+
+  {% include header.html brand_tag=site.person.bio %}
+
+  <main class="container">
+    <section class="hero">
+      <h1>{{ site.person.name }}</h1>
+      <p class="lead">{{ site.person.bio }}</p>
+
+      <div class="hero__cta">
+        <a class="button" href="/papers/">Browse papers</a>
+        <a class="button button--secondary" href="{{ latest.pdf }}">Download latest PDF</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Papers / Preprints</h2>
+      <p class="muted">
+        For best indexing reliability: each paper has a dedicated HTML landing page (title/abstract/metadata)
+        and a direct PDF link.
+      </p>
+
+      <ol class="paper-list">
+        {% for pub in pubs %}
+          {% include pub_item_home.html pub=pub %}
+        {% endfor %}
+      </ol>
+
+      <p class="muted small">
+        Tip: add a backlink to <code>/papers/</code> from your GitHub profile “Website” field and/or LinkedIn
+        to speed up discovery by crawlers.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <ul class="simple-list">
+        <li><strong>ORCID:</strong> <a href="https://orcid.org/{{ site.person.orcid }}" rel="me">{{ site.person.orcid }}</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/{{ site.person.github_username }}" rel="me">@{{ site.person.github_username }}</a></li>
+      </ul>
+    </section>
+  </main>
+
+  {% include footer_home.html %}
+</body>
+</html>
