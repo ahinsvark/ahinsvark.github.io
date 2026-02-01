@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="container">
+    <div class="brand">
+      <a class="brand__link" href="/">{{ site.person.name }}</a>
+      <span class="brand__tag">{{ page.brand_tag | default: site.person.bio }}</span>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link" href="/">Home</a>
+      <a class="nav__link" href="/papers/">Papers</a>
+      <a class="nav__link" href="https://orcid.org/{{ site.person.orcid }}" rel="me">ORCID</a>
+      <a class="nav__link" href="https://github.com/{{ site.person.github_username }}" rel="me">GitHub</a>
+    </nav>
+  </div>
+</header>
