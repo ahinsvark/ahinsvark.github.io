@@ -1,0 +1,14 @@
+title: "Arthur Hinsvark"
+description: "Independent researcher. Papers and preprints with direct PDF links."
+url: "https://ahinsvark.github.io"
+baseurl: ""
+
+# Site-specific variables (used everywhere)
+person:
+  name: "Arthur Hinsvark"
+  bio: "Independent researcher, enjoys thinking about AI problems."
+  github_username: "ahinsvark"
+  orcid: "0009-0007-8334-7139"
+
+# Make sure Jekyll processes .md + data
+markdown: kramdown
