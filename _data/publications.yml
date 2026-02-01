@@ -9,7 +9,7 @@
   pdf: "/papers/llm-survey-01.pdf"
 
   # Human-visible author line (can be long, includes ellipsis)
-  authors_display: "Aaron Adcock, Aayushi Srivastava, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pande, … and others"
+  authors_display: "Aaron Adcock, Aayushi Srivastava, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pande, Abhinav Sharma, Abhishek Kadian, Abhishek Kumawat, Adam Kelsey, Adam Stelle, Adeel Cheema, Adela Kabiljo, Adina Katz, Adithya Gangidi, Aditya Tayade, Adolfo Victoria, Adrian Samatan Alastuey, Adrien Conrath, Afroz Mohiuddin, Ahmed Sharif, Ahnaf Siddiqui, Ahuva Goldstand, Aijung Li, Aidan Boyd, Aidin Kazemi Daliri, Aisha Iqbal, Ajay Menon , Ajit Mathews, Akhil Mathur, … and others"
 
   # Scholar meta tags (keep reasonable; e.g., first 10–20 names)
   authors:
