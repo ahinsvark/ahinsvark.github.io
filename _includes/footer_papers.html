@@ -1,0 +1,7 @@
+{% assign pubs_sorted = site.data.publications | sort: "date" %}
+{% assign latest = pubs_sorted | last %}
+<footer class="site-footer">
+  <div class="container">
+    <span class="muted small">Last updated: {{ latest.date | date: "%Y-%m-%d" }}</span>
+  </div>
+</footer>
