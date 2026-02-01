@@ -1,0 +1,14 @@
+<li class="paper">
+  <div class="paper__title">
+    <a href="/papers/{{ pub.slug }}.html">{{ pub.title }}</a>
+  </div>
+  <div class="paper__meta">
+    {{ pub.authors_display }}
+    <span class="dot">·</span> {{ pub.year }}
+  </div>
+  <div class="paper__links">
+    <a href="/papers/{{ pub.slug }}.html">Abstract</a>
+    <span class="dot">·</span>
+    <a href="{{ pub.pdf }}">PDF</a>
+  </div>
+</li>
