@@ -1,0 +1,84 @@
+{% assign pub = site.data.publications | where: "id", page.pub_id | first %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>{{ pub.title }}</title>
+  <meta name="description" content="Landing page for: {{ pub.title }}. Includes abstract and direct PDF link." />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="canonical" href="{{ site.url }}/papers/{{ pub.slug }}.html" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/style.css" />
+
+  <!-- Google Scholar / Highwire metadata -->
+  <meta name="citation_title" content="{{ pub.title }}" />
+  {% for a in pub.authors %}
+    <meta name="citation_author" content="{{ a }}" />
+  {% endfor %}
+  <meta name="citation_publication_date" content="{{ pub.date | date: "%Y/%m/%d" }}" />
+  <meta name="citation_language" content="en" />
+  <meta name="citation_keywords" content="{{ pub.keywords | join: '; ' }}" />
+  <meta name="citation_pdf_url" content="{{ site.url }}{{ pub.pdf }}" />
+  <meta name="citation_abstract_html_url" content="{{ site.url }}/papers/{{ pub.slug }}.html" />
+
+  <!-- Dublin Core redundancy -->
+  <meta name="DC.Title" content="{{ pub.title }}" />
+  <meta name="DC.Creator" content="{{ pub.authors | join: '; ' }}; et al." />
+  <meta name="DC.Date" content="{{ pub.date }}" />
+  <meta name="DC.Type" content="Text" />
+  <meta name="DC.Identifier" content="{{ site.url }}{{ pub.pdf }}" />
+
+  <meta property="og:title" content="{{ pub.title }}" />
+  <meta property="og:description" content="Landing page with abstract + direct PDF link." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ site.url }}/papers/{{ pub.slug }}.html" />
+</head>
+
+<body>
+  {% include header.html brand_tag="Paper landing page" %}
+
+  <main class="container">
+    <article class="card">
+      <h1>{{ pub.title }}</h1>
+
+      <p class="paper-authors">
+        <strong>Authors:</strong>
+        {{ pub.authors_display }}
+        <br />
+        <span class="muted small">{{ pub.author_note }}</span>
+      </p>
+
+      <p class="paper-meta">
+        <strong>Date:</strong> {{ pub.date | date: "%Y-%m-%d" }}
+        <span class="dot">·</span>
+        <a href="{{ pub.pdf }}">Download PDF</a>
+        {% if pub.venue %}
+          <span class="dot">·</span>
+          <span class="muted">{{ pub.venue }}</span>
+        {% endif %}
+      </p>
+
+      <h2>Abstract</h2>
+      <p>{{ pub.abstract }}</p>
+
+      {% if pub.notes and pub.notes.size > 0 %}
+      <h2>Notes</h2>
+      <ul class="simple-list">
+        {% for n in pub.notes %}
+          <li>{{ n }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <p class="muted small">
+        Back to the <a href="/papers/">paper list</a>.
+      </p>
+    </article>
+  </main>
+
+  {% include footer_paper.html pub=pub %}
+</body>
+</html>
