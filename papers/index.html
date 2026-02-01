@@ -1,0 +1,32 @@
+---
+layout: papers
+---
+{% assign pubs = site.data.publications | sort: "date" | reverse %}
+
+<main class="container">
+  <section class="hero hero--compact">
+    <h1>Papers / Preprints</h1>
+    <p class="lead">
+      This page is intentionally dense with links (good for crawling). Each paper has:
+      (1) a landing page with citation metadata and (2) a direct PDF.
+    </p>
+  </section>
+
+  <section class="card">
+    <ol class="paper-list">
+      {% for pub in pubs %}
+        {% include pub_item_hub.html pub=pub %}
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Add a new paper (quick checklist)</h2>
+    <ol class="simple-list">
+      <li>Upload <code>/papers/&lt;slug&gt;.pdf</code></li>
+      <li>Add one entry to <code>/_data/publications.yml</code></li>
+      <li>Create <code>/papers/&lt;slug&gt;.md</code> (stub, see existing example)</li>
+      <li>Commit — the home page, hub page, and sitemap update automatically</li>
+    </ol>
+  </section>
+</main>
