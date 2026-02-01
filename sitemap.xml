@@ -1,0 +1,29 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign pubs_sorted = site.data.publications | sort: "date" %}
+  {% assign latest = pubs_sorted | last %}
+
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ latest.date | date: "%Y-%m-%d" }}</lastmod>
+  </url>
+
+  <url>
+    <loc>{{ site.url }}/papers/</loc>
+    <lastmod>{{ latest.date | date: "%Y-%m-%d" }}</lastmod>
+  </url>
+
+  {% for pub in site.data.publications %}
+  <url>
+    <loc>{{ site.url }}/papers/{{ pub.slug }}.html</loc>
+    <lastmod>{{ pub.date | date: "%Y-%m-%d" }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ pub.pdf }}</loc>
+    <lastmod>{{ pub.date | date: "%Y-%m-%d" }}</lastmod>
+  </url>
+  {% endfor %}
+</urlset>
