@@ -1,0 +1,55 @@
+- id: "llm-survey-01"
+  slug: "llm-survey-01"
+  title: "The Llama 4 Herd: Architecture, Training, Evaluation, and Deployment Notes"
+  date: "2026-01-30"
+  year: 2026
+  venue: "Preprint"
+
+  # Where the PDF lives on your site:
+  pdf: "/papers/llm-survey-01.pdf"
+
+  # Human-visible author line (can be long, includes ellipsis)
+  authors_display: "Aaron Adcock, Aayushi Srivastava, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pande, … and others"
+
+  # Scholar meta tags (keep reasonable; e.g., first 10–20 names)
+  authors:
+    - "Aaron Adcock"
+    - "Aayushi Srivastava"
+    - "Abhimanyu Dubey"
+    - "Abhinav Jauhri"
+    - "Abhinav Pande"
+    - "Abhinav Sharma"
+    - "Abhishek Kadian"
+    - "Abhishek Kumawat"
+    - "Adam Kelsey"
+    - "Adam Stelle"
+
+  keywords:
+    - "large language models"
+    - "mixture-of-experts"
+    - "multimodal models"
+    - "long context"
+    - "evaluation"
+    - "deployment"
+    - "licensing"
+
+  # Short blurb used on /papers/ hub
+  blurb: "Independent synthesis of publicly available materials about Meta’s Llama 4 (Scout, Maverick, Behemoth), including architecture, training, evaluation, deployment notes, and licensing/safeguards."
+
+  # Full abstract used on the paper landing page
+  abstract: >
+    This document consolidates publicly reported technical details about Meta’s Llama 4 model family.
+    It summarizes (i) released variants (Scout and Maverick) and the broader “herd” context including the previewed Behemoth teacher model,
+    (ii) architectural characteristics beyond a high-level MoE description—covering routed/shared-expert structure, early-fusion multimodality,
+    and long-context design elements reported for Scout (iRoPE and length generalization strategies),
+    (iii) training disclosures spanning pre-training, mid-training for long-context extension, and post-training methodology (lightweight SFT, online RL, and lightweight DPO),
+    (iv) developer-reported benchmark results for both base and instruction-tuned checkpoints, and
+    (v) practical deployment constraints observed across major serving environments, including provider-specific context limits and quantization packaging.
+    The manuscript also summarizes licensing obligations relevant to redistribution and derivative naming, and reviews publicly described safeguards and evaluation practices.
+    The goal is to provide a compact technical reference for researchers and practitioners who need precise, source-backed facts about Llama 4.
+
+  author_note: "Note: the complete author list appears in Appendix A of the PDF."
+
+  notes:
+    - "This manuscript is an independent synthesis of publicly available materials and is not an official Meta publication."
+    - "All product names and trademarks are the property of their respective owners."
