@@ -57,3 +57,18 @@ Copy/paste and modify:
   notes:
     - "Optional note 1"
     - "Optional note 2"
+```
+---
+
+### 3) Create the landing page stub (generates the HTML page)
+Create:
+`/papers/<slug>.md`
+
+Add (example):
+```
+---
+layout: paper
+pub_id: "llm-survey-02"
+permalink: /papers/llm-survey-02.html
+---
+```
